@@ -15,6 +15,7 @@ Release:        %{release}
 License: 	GPL
 URL:		http://mds.mandriva.com
 Source:         %{name}-%{snapshot}.tar.bz2
+Patch0:		lrs-0.1-parallel.patch
 BuildRequires:	glibc-static-devel gcc3.3-cpp gcc3.3 rpm-build newt-devel
 BuildArch:	i586
 
@@ -24,6 +25,7 @@ This package contains command line tools for Pulse2 Imaging.
 %prep
 rm -rf ${RPM_BUILD_ROOT}
 %setup -q -n %{tname}
+%patch0 -p1 -b .parallel
 
 %build
 %make
