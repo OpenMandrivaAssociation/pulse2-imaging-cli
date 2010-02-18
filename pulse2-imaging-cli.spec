@@ -15,8 +15,8 @@ License: 	GPL
 URL:		http://mds.mandriva.com
 Prefix:         %{_prefix}
 Source:         %{name}-%{snapshot}.tar.bz2
-buildrequires:	glibc-static-devel gcc3.3-cpp gcc3.3 rpm-build newt-devel
-buildarch:	i386
+BuildRequires:	glibc-static-devel gcc3.3-cpp gcc3.3 rpm-build newt-devel
+BuildArch:	i386
 
 %description
 This package contains command line tools for Pulse2 Imaging.
