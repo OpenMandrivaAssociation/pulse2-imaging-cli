@@ -13,7 +13,6 @@ Version:        %{version}
 Release:        %{release}
 License: 	GPL
 URL:		http://mds.mandriva.com
-Prefix:         %{_prefix}
 Source:         %{name}-%{snapshot}.tar.bz2
 BuildRequires:	glibc-static-devel gcc3.3-cpp gcc3.3 rpm-build newt-devel
 BuildArch:	i386
