@@ -1,4 +1,5 @@
 %define name pulse2-imaging-cli
+# http://mds.mandriva.org/svn/mmc-projects/pulse2/client/imaging/trunk/
 %define snapshot 20091125
 %define version 0
 %define rel 1
