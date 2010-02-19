@@ -28,7 +28,8 @@ rm -rf ${RPM_BUILD_ROOT}
 %patch0 -p1 -b .parallel
 
 %build
-%make
+# parallel build broken in internal libext2fs copy
+%make -j1
 
 %install
 mkdir -p %{buildroot}%{_bindir}
