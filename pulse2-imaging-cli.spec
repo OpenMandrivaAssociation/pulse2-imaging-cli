@@ -2,7 +2,7 @@
 # http://mds.mandriva.org/svn/mmc-projects/pulse2/client/imaging/trunk/
 %define snapshot 20091125
 %define version 0
-%define rel 2
+%define rel 3
 %define release %mkrel 0.%{snapshot}.%{rel}
 %define tname lrs-0.1
 
