@@ -1,0 +1,56 @@
+diff -p -up lrs-0.1/revosave/Makefile.parallel lrs-0.1/revosave/Makefile
+--- lrs-0.1/revosave/Makefile.parallel	2009-11-09 10:23:09.000000000 +0100
++++ lrs-0.1/revosave/Makefile	2010-02-18 17:12:16.000000000 +0100
+@@ -28,6 +28,7 @@ IMGFILES	= image_swap image_fat image_nt
+ 
+ CFLAGS	= -Wall -O2 -DLBLIMAGEVER='1.2' -I$(ZLIB_DIR) -I$(E2FS_DIR)/lib -I/usr/lib -I/lib
+ LDFLAGS	= -s
++LIBFILES = liblrs.so.1 liblrs.a
+ LIBLRS	= -L. -llrs
+ LIBZ	= -L$(ZLIB_DIR) -lz
+ RFSLIBS	= -L$(RFS_DIR)/lib -lcore -lmisc
+@@ -38,34 +39,34 @@ all: $(OBJ) $(LIBOBJ) liblrs.so.1 liblrs
+ depend:
+ 	$(CC) -M $(CFLAGS) *.c >.depend
+ 
+-image_fat: image_fat.o
++image_fat: image_fat.o $(LIBFILES)
+ 	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $^ $(LIBLRS)
+ 
+-image_swap: image_swap.o
++image_swap: image_swap.o $(LIBFILES)
+ 	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $^ $(LIBLRS)
+ 
+-image_raw: image_raw.o
++image_raw: image_raw.o $(LIBFILES)
+ 	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $^ $(LIBLRS)
+ 
+-image_ntfs: image_ntfs.o
++image_ntfs: image_ntfs.o $(LIBFILES)
+ 	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $^ $(LIBLRS)
+ 
+-image_e2fs: image_e2fs.o
++image_e2fs: image_e2fs.o $(LIBFILES)
+ 	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $^ $(LIBLRS) $(LIBE2FS)
+ 
+-image_xfs: image_xfs.o
++image_xfs: image_xfs.o $(LIBFILES)
+ 	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $^ $(LIBLRS)
+ 
+-image_jfs: image_jfs.o
++image_jfs: image_jfs.o $(LIBFILES)
+ 	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $^ $(LIBLRS)
+ 
+-image_lvm: image_lvm.o lvm.o
++image_lvm: image_lvm.o $(LIBFILES) lvm.o
+ 	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $^ $(LIBLRS)
+ 
+-image_lvmreiserfs: lvm.o image_lvmreiserfs.o
++image_lvmreiserfs: lvm.o image_lvmreiserfs.o $(LIBFILES)
+ 	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $^ $(LIBS) $(RFSLIBS)
+ 
+-decompress: decompress.o $(OBJ)
++decompress: decompress.o $(OBJ) $(LIBFILES)
+ 	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $^ $(LIBLRS) $(LIBZ)
+ 
+ decompress-test: decompress-test.o $(OBJ)
