@@ -13,7 +13,7 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Version:        %{version}
 Release:        %{release}
 License: 	GPL
-URL:		http://mds.mandriva.com
+URL:		https://mds.mandriva.com
 Source:         %{name}-%{snapshot}.tar.bz2
 Patch0:		lrs-0.1-parallel.patch
 BuildRequires:	glibc-static-devel gcc3.3-cpp gcc3.3 rpm-build newt-devel
